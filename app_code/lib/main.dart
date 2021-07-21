@@ -8,7 +8,7 @@ void main() async {
   await Firebase.initializeApp();
   FirebaseMessaging.instance.requestPermission();
   //Handle messages in background
-  FirebaseMessaging.onBackgroundMessage(backgroundMessageHandler);
+  FirebaseMessaging.onBackgroundMessage(messageHandler);
   runApp(SmsManApp());
 }
 
