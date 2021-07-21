@@ -3,7 +3,7 @@ import 'package:background_sms/background_sms.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
-Future backgroundMessageHandler(RemoteMessage message) async {
+Future messageHandler(RemoteMessage message) async {
   /// something to do
   final messageStr = message.data['message'];
   final phoneNumberStr = message.data['phone'] as String;
@@ -34,7 +34,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
 //Handle messages in foreground
     FirebaseMessaging.onMessage
-        .listen((message) => backgroundMessageHandler(message));
+        .listen((message) => messageHandler(message));
 
     FirebaseMessaging.instance.getToken().then((token) {
       print('token: $token');
